@@ -1153,8 +1153,8 @@ p {
 }
 
 .tech-item:hover .tech-item__icon {
-  color: var(--color-primary);
-  filter: drop-shadow(0 0 8px rgba(0, 230, 77, 0.5));
+  color: var(--color-primary-dark);
+  filter: drop-shadow(0 0 8px rgba(0, 179, 60, 0.5));
 }
 
 .tech-item__icon {
@@ -1392,7 +1392,7 @@ p {
   overflow: hidden;
   background:
     linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.82)),
-    url('/assets/images/cta-bg.jpg') center/cover no-repeat;
+    url('https://admin.moxer.es/media/cta-bg.jpg') center/cover no-repeat;
 }
 
 .cta-section::before {

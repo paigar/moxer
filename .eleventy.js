@@ -7,6 +7,7 @@ module.exports = function(eleventyConfig) {
 
   // Filters
   eleventyConfig.addFilter("slice", (arr, start, end) => arr.slice(start, end));
+  eleventyConfig.addFilter("countUniqueBy", (arr, key) => new Set(arr.map(i => i[key])).size);
 
   return {
     dir: {

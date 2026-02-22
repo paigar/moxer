@@ -5,7 +5,7 @@ description: "Artículos sobre protección visual, tendencias en eyewear deporti
 permalink: /blog/
 ---
 
-<section class="page-hero page-hero--dark" style="background-image: linear-gradient(rgba(0,0,0,0.68), rgba(0,0,0,0.68)), url('/assets/images/heroes/hero-blog.jpg');">
+<section class="page-hero page-hero--dark" style="background-image: linear-gradient(rgba(0,0,0,0.68), rgba(0,0,0,0.68)), url('{{ site.adminUrl }}/media/heroes/hero-blog.jpg');">
   <div class="container">
     <nav class="page-hero__breadcrumb" aria-label="Navegación breadcrumb">
       <a href="/">Inicio</a>
@@ -36,7 +36,7 @@ permalink: /blog/
         >
       </div>
       <div style="padding:2rem 2.5rem 2.5rem;">
-        <span style="color:var(--color-primary); font-family:var(--font-heading); font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.15em; margin-bottom:0.75rem; display:block;">{{ featured.category }} · Destacado</span>
+        <span style="color:var(--color-primary-dark); font-family:var(--font-heading); font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.15em; margin-bottom:0.75rem; display:block;">{{ featured.category }} · Destacado</span>
         <h2 style="font-size:clamp(1.5rem,3vw,2.25rem); margin-bottom:1rem;">{{ featured.title }}</h2>
         <p style="color:var(--color-text-muted); font-size:1rem; line-height:1.7; margin-bottom:1.5rem;">{{ featured.excerpt }}</p>
         <span style="font-family:var(--font-heading); font-size:0.8rem; color:var(--color-text-faint);">{{ featured.readTime }} min de lectura</span>

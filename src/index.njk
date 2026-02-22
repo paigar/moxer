@@ -13,7 +13,7 @@ bodyClass: "home"
   <!-- Background image -->
   <div class="hero__bg">
     <img
-      src="/assets/images/hero-home.jpg"
+      src="{{ site.adminUrl }}/media/hero-home.jpg"
       alt=""
       class="hero__image"
       loading="eager"
@@ -62,7 +62,7 @@ bodyClass: "home"
   <div class="container">
     <div class="stats__grid">
       <div class="stat reveal">
-        <span class="stat__number" data-counter="30" data-suffix="+">30+</span>
+        <span class="stat__number" data-counter="{{ products.length }}">{{ products.length }}</span>
         <span class="stat__label">Modelos</span>
       </div>
       <div class="stat reveal reveal--delay-1">
@@ -70,7 +70,7 @@ bodyClass: "home"
         <span class="stat__label">Colecciones</span>
       </div>
       <div class="stat reveal reveal--delay-2">
-        <span class="stat__number" data-counter="15" data-suffix="+">15+</span>
+        <span class="stat__number" data-counter="{{ distributors.length }}">{{ distributors.length }}</span>
         <span class="stat__label">Ópticas distribuidoras</span>
       </div>
       <div class="stat reveal reveal--delay-3">
@@ -101,7 +101,7 @@ bodyClass: "home"
       <!-- 1. Sport (wide card) -->
       <a href="/colecciones/deportivas/" class="collection-card reveal">
         <img
-          src="/assets/images/collections/sport-wide.jpg"
+          src="{{ site.adminUrl }}/media/collections/sport-wide.jpg"
           alt="Colección Deportivas"
           class="collection-card__image"
           loading="lazy"
@@ -120,7 +120,7 @@ bodyClass: "home"
       <!-- 2. Lifestyle -->
       <a href="/colecciones/adulto/" class="collection-card reveal reveal--delay-1">
         <img
-          src="/assets/images/collections/lifestyle-tall.jpg"
+          src="{{ site.adminUrl }}/media/collections/lifestyle-tall.jpg"
           alt="Colección Adulto"
           class="collection-card__image"
           loading="lazy"
@@ -139,7 +139,7 @@ bodyClass: "home"
       <!-- 3. Infantil -->
       <a href="/colecciones/infantil/" class="collection-card reveal reveal--delay-2">
         <img
-          src="/assets/images/collections/infantil-tall.jpg"
+          src="{{ site.adminUrl }}/media/collections/infantil-tall.jpg"
           alt="Colección Infantil"
           class="collection-card__image"
           loading="lazy"
@@ -158,7 +158,7 @@ bodyClass: "home"
       <!-- 4. Cadete -->
       <a href="/colecciones/cadete/" class="collection-card reveal reveal--delay-3">
         <img
-          src="/assets/images/collections/cadete-tall.jpg"
+          src="{{ site.adminUrl }}/media/collections/cadete-tall.jpg"
           alt="Colección Cadete"
           class="collection-card__image"
           loading="lazy"
@@ -306,7 +306,7 @@ bodyClass: "home"
       <!-- Media -->
       <div class="brand-story__media reveal">
         <img
-          src="/assets/images/brand/brand-story.jpg"
+          src="{{ site.adminUrl }}/media/brand/brand-story.jpg"
           alt="Historia de Möxer"
           class="brand-story__image"
           loading="lazy"

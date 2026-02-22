@@ -11,7 +11,7 @@
   <meta property="og:title" content="{% if title %}{{ title }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}">
   <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="{{ site.url }}/assets/images/logo.jpg">
+  <meta property="og:image" content="{{ site.adminUrl }}/media/logo_dark.jpg">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="/assets/css/main.css">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" href="/assets/images/logo.jpg">
+  <link rel="icon" type="image/jpeg" href="{{ site.adminUrl }}/media/logo_dark.jpg">
 </head>
 <body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
 

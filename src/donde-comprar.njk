@@ -6,7 +6,7 @@ permalink: /donde-comprar/
 ---
 
 <!-- Page Hero -->
-<section class="page-hero page-hero--dark" style="background-image: linear-gradient(rgba(0,0,0,0.68), rgba(0,0,0,0.68)), url('/assets/images/heroes/hero-donde-comprar.jpg');">
+<section class="page-hero page-hero--dark" style="background-image: linear-gradient(rgba(0,0,0,0.68), rgba(0,0,0,0.68)), url('{{ site.adminUrl }}/media/heroes/hero-donde-comprar.jpg');">
   <div class="container">
     <nav class="page-hero__breadcrumb" aria-label="Navegación breadcrumb">
       <a href="/">Inicio</a>
@@ -62,7 +62,7 @@ permalink: /donde-comprar/
     <header class="section__header">
       <span class="section__label">Puntos de venta</span>
       <h2 class="section__title">Distribuidores en España</h2>
-      <p class="section__subtitle">Red activa de más de 15 ópticas y tiendas especializadas en toda la geografía española.</p>
+      <p class="section__subtitle">Red activa de {{ distributors.length }} ópticas y tiendas especializadas en toda la geografía española.</p>
     </header>
 
     <div class="region-accordion">
@@ -210,18 +210,18 @@ permalink: /donde-comprar/
 </section>
 
 <!-- Visual break: join the network -->
-<section style="background: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)), url('/assets/images/distribuidores-bg.jpg') center/cover no-repeat; padding: 5rem 0; text-align: center;">
+<section style="background: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)), url('{{ site.adminUrl }}/media/distribuidores-bg.jpg') center/cover no-repeat; padding: 5rem 0; text-align: center;">
   <div class="container">
     <span class="cta-section__kicker">Para ópticos profesionales</span>
     <h2 style="font-family:var(--font-heading); font-size:clamp(1.75rem,4vw,3rem); font-weight:900; color:#fff; max-width:20ch; margin-inline:auto; line-height:1.2; margin-bottom:1rem;">Forma parte de la red exclusiva de distribuidores</h2>
     <p style="color:rgba(255,255,255,0.6); max-width:52ch; margin-inline:auto; font-size:1.05rem; line-height:1.7; margin-bottom:2.5rem;">Condiciones competitivas, material PLV y soporte de producto completo para ópticos independientes en toda España.</p>
     <div style="display:flex; gap:3rem; justify-content:center; flex-wrap:wrap; margin-bottom:2.5rem;">
       <div>
-        <div style="font-family:var(--font-heading); font-size:2.75rem; font-weight:900; color:var(--color-primary); line-height:1;">15+</div>
+        <div style="font-family:var(--font-heading); font-size:2.75rem; font-weight:900; color:var(--color-primary); line-height:1;">{{ distributors.length }}</div>
         <div style="font-size:0.75rem; color:rgba(255,255,255,0.55); text-transform:uppercase; letter-spacing:0.12em; margin-top:0.3rem;">Ópticas distribuidoras</div>
       </div>
       <div>
-        <div style="font-family:var(--font-heading); font-size:2.75rem; font-weight:900; color:var(--color-primary); line-height:1;">5</div>
+        <div style="font-family:var(--font-heading); font-size:2.75rem; font-weight:900; color:var(--color-primary); line-height:1;">{{ distributors | countUniqueBy("region") }}</div>
         <div style="font-size:0.75rem; color:rgba(255,255,255,0.55); text-transform:uppercase; letter-spacing:0.12em; margin-top:0.3rem;">Comunidades autónomas</div>
       </div>
       <div>
