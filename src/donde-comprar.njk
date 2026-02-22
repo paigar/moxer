@@ -62,140 +62,37 @@ permalink: /donde-comprar/
     <header class="section__header">
       <span class="section__label">Puntos de venta</span>
       <h2 class="section__title">Distribuidores en España</h2>
-      <p class="section__subtitle">Red activa de {{ distributors.length }} ópticas y tiendas especializadas en toda la geografía española.</p>
+      {% set localDistributors = distributors | exclude("region", "España") %}
+      <p class="section__subtitle">Red activa de {{ localDistributors.length }} ópticas y tiendas especializadas en toda la geografía española.</p>
     </header>
 
+    {% set regionGroups = distributors | exclude("region", "España") | groupBy("region") %}
     <div class="region-accordion">
 
-      <!-- País Vasco -->
-      <div class="region-accordion__item is-open">
-        <button class="region-accordion__header" type="button" aria-expanded="true">
-          <span class="region-accordion__name">País Vasco</span>
-          <span class="region-accordion__count">2 puntos de venta</span>
+      {% for group in regionGroups %}
+      <div class="region-accordion__item{% if loop.first %} is-open{% endif %}">
+        <button class="region-accordion__header" type="button" aria-expanded="{% if loop.first %}true{% else %}false{% endif %}">
+          <span class="region-accordion__name">{{ group.name }}</span>
+          <span class="region-accordion__count">{{ group.items.length }} punto{% if group.items.length !== 1 %}s{% endif %} de venta</span>
           <svg class="region-accordion__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="region-accordion__body">
           <div class="distributors-grid">
-            {% for dist in distributors %}
-              {% if dist.region === "País Vasco" %}
-                <div class="distributor-card reveal">
-                  <div class="distributor-card__name">{{ dist.name }}</div>
-                  {% if dist.city and dist.city !== "España" %}
-                    <div class="distributor-card__location">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                      {{ dist.city }}{% if dist.province and dist.province !== dist.city %}, {{ dist.province }}{% endif %}
-                    </div>
-                  {% endif %}
-                </div>
-              {% endif %}
+            {% for dist in group.items %}
+              <div class="distributor-card reveal">
+                <div class="distributor-card__name">{{ dist.name }}</div>
+                {% if dist.city and dist.city !== "España" %}
+                  <div class="distributor-card__location">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    {{ dist.city }}{% if dist.province and dist.province !== dist.city and dist.province !== "-" %}, {{ dist.province }}{% endif %}
+                  </div>
+                {% endif %}
+              </div>
             {% endfor %}
           </div>
         </div>
       </div>
-
-      <!-- Cataluña -->
-      <div class="region-accordion__item">
-        <button class="region-accordion__header" type="button" aria-expanded="false">
-          <span class="region-accordion__name">Cataluña</span>
-          <span class="region-accordion__count">4 puntos de venta</span>
-          <svg class="region-accordion__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="region-accordion__body">
-          <div class="distributors-grid">
-            {% for dist in distributors %}
-              {% if dist.region === "Cataluña" %}
-                <div class="distributor-card reveal">
-                  <div class="distributor-card__name">{{ dist.name }}</div>
-                  {% if dist.city and dist.city !== "España" %}
-                    <div class="distributor-card__location">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                      {{ dist.city }}{% if dist.province and dist.province !== dist.city %}, {{ dist.province }}{% endif %}
-                    </div>
-                  {% endif %}
-                </div>
-              {% endif %}
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-
-      <!-- Aragón -->
-      <div class="region-accordion__item">
-        <button class="region-accordion__header" type="button" aria-expanded="false">
-          <span class="region-accordion__name">Aragón</span>
-          <span class="region-accordion__count">1 punto de venta</span>
-          <svg class="region-accordion__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="region-accordion__body">
-          <div class="distributors-grid">
-            {% for dist in distributors %}
-              {% if dist.region === "Aragón" %}
-                <div class="distributor-card reveal">
-                  <div class="distributor-card__name">{{ dist.name }}</div>
-                  {% if dist.city and dist.city !== "España" %}
-                    <div class="distributor-card__location">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                      {{ dist.city }}{% if dist.province and dist.province !== dist.city %}, {{ dist.province }}{% endif %}
-                    </div>
-                  {% endif %}
-                </div>
-              {% endif %}
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-
-      <!-- Castilla y León -->
-      <div class="region-accordion__item">
-        <button class="region-accordion__header" type="button" aria-expanded="false">
-          <span class="region-accordion__name">Castilla y León</span>
-          <span class="region-accordion__count">2 puntos de venta</span>
-          <svg class="region-accordion__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="region-accordion__body">
-          <div class="distributors-grid">
-            {% for dist in distributors %}
-              {% if dist.region === "Castilla y León" %}
-                <div class="distributor-card reveal">
-                  <div class="distributor-card__name">{{ dist.name }}</div>
-                  {% if dist.city and dist.city !== "España" %}
-                    <div class="distributor-card__location">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                      {{ dist.city }}{% if dist.province and dist.province !== dist.city %}, {{ dist.province }}{% endif %}
-                    </div>
-                  {% endif %}
-                </div>
-              {% endif %}
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-
-      <!-- Comunidad Valenciana -->
-      <div class="region-accordion__item">
-        <button class="region-accordion__header" type="button" aria-expanded="false">
-          <span class="region-accordion__name">Comunidad Valenciana</span>
-          <span class="region-accordion__count">1 punto de venta</span>
-          <svg class="region-accordion__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="region-accordion__body">
-          <div class="distributors-grid">
-            {% for dist in distributors %}
-              {% if dist.region === "Comunidad Valenciana" %}
-                <div class="distributor-card reveal">
-                  <div class="distributor-card__name">{{ dist.name }}</div>
-                  {% if dist.city and dist.city !== "España" %}
-                    <div class="distributor-card__location">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                      {{ dist.city }}{% if dist.province and dist.province !== dist.city %}, {{ dist.province }}{% endif %}
-                    </div>
-                  {% endif %}
-                </div>
-              {% endif %}
-            {% endfor %}
-          </div>
-        </div>
-      </div>
+      {% endfor %}
 
     </div>
 
@@ -217,11 +114,11 @@ permalink: /donde-comprar/
     <p style="color:rgba(255,255,255,0.6); max-width:52ch; margin-inline:auto; font-size:1.05rem; line-height:1.7; margin-bottom:2.5rem;">Condiciones competitivas, material PLV y soporte de producto completo para ópticos independientes en toda España.</p>
     <div style="display:flex; gap:3rem; justify-content:center; flex-wrap:wrap; margin-bottom:2.5rem;">
       <div>
-        <div style="font-family:var(--font-heading); font-size:2.75rem; font-weight:900; color:var(--color-primary); line-height:1;">{{ distributors.length }}</div>
+        <div style="font-family:var(--font-heading); font-size:2.75rem; font-weight:900; color:var(--color-primary); line-height:1;">{{ distributors | exclude("region", "España") | length }}</div>
         <div style="font-size:0.75rem; color:rgba(255,255,255,0.55); text-transform:uppercase; letter-spacing:0.12em; margin-top:0.3rem;">Ópticas distribuidoras</div>
       </div>
       <div>
-        <div style="font-family:var(--font-heading); font-size:2.75rem; font-weight:900; color:var(--color-primary); line-height:1;">{{ distributors | countUniqueBy("region") }}</div>
+        <div style="font-family:var(--font-heading); font-size:2.75rem; font-weight:900; color:var(--color-primary); line-height:1;">{{ distributors | exclude("region", "España") | countUniqueBy("region") }}</div>
         <div style="font-size:0.75rem; color:rgba(255,255,255,0.55); text-transform:uppercase; letter-spacing:0.12em; margin-top:0.3rem;">Comunidades autónomas</div>
       </div>
       <div>
