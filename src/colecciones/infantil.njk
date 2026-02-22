@@ -1,0 +1,81 @@
+---
+layout: base.njk
+title: "Gafas de Sol Infantiles | Polarizadas, Flexibles e Irrompibles"
+description: "Gafas de sol para niños Möxer: material inyectado flexible, lentes polarizadas, protección UV400. Modelos desde 29€ con goma elástica para bebé. En tu óptica."
+collection: "infantil"
+permalink: /colecciones/infantil/
+---
+
+<section class="page-hero page-hero--dark" style="background-image: linear-gradient(rgba(0,0,0,0.68), rgba(0,0,0,0.68)), url('/assets/images/heroes/hero-infantil.jpg');">
+  <div class="container">
+    <nav class="page-hero__breadcrumb" aria-label="Navegación breadcrumb">
+      <a href="/">Inicio</a>
+      <span>→</span>
+      <a href="/colecciones/">Colecciones</a>
+      <span>→</span>
+      <span aria-current="page">Infantil</span>
+    </nav>
+    <span class="page-hero__label">Kids Collection</span>
+    <h1 class="page-hero__title">Gafas Infantiles</h1>
+    <p class="page-hero__subtitle">
+      Los ojos de los niños son hasta 3 veces más sensibles a la radiación UV. Material flexible, lentes polarizadas y goma elástica para bebés. Protección máxima desde el primer año.
+    </p>
+  </div>
+</section>
+
+<!-- Info banner -->
+<section style="background:var(--color-primary-faint); border-top:1px solid var(--color-border-green); border-bottom:1px solid var(--color-border-green); padding:2rem 0;">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr; gap:1.5rem; text-align:center;">
+      <p style="color:var(--color-text); font-size:1rem; line-height:1.7; max-width:65ch; margin:0 auto;">
+        <strong style="color:var(--color-primary);">¿Sabías que?</strong> Los cristalinos de los niños son más transparentes y absorben menos radiación UV que los de un adulto. La protección solar adecuada desde la infancia reduce el riesgo de cataratas y degeneración macular en el futuro.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="products-grid">
+      {% for product in products %}
+        {% if product.collection === "infantil" %}
+          <a href="/productos/{{ product.id }}/" class="product-card reveal" data-lens="{{ product.lensType }}">
+            <div class="product-card__image-wrap">
+              <img
+                src="{{ product.imageFront }}"
+                alt="{{ product.name }} – Möxer Kids"
+                class="product-card__image"
+                loading="lazy"
+              >
+              {% if product.badge %}
+                <span class="product-card__badge">{{ product.badge }}</span>
+              {% endif %}
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__collection">{{ product.lensType }}</span>
+              <h2 class="product-card__name">{{ product.name }}</h2>
+              <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:0.75rem; line-height:1.5;">{{ product.description }}</p>
+              <div class="product-card__features">
+                {% for feat in product.features %}
+                  <span class="feature-tag">{{ feat }}</span>
+                {% endfor %}
+              </div>
+              <div class="product-card__footer">
+                <span class="product-card__cta">Ver ficha →</span>
+              </div>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <span class="cta-section__kicker">Protección desde el primer día</span>
+    <h2 class="cta-section__title" style="max-width:20ch; margin-inline:auto;">Encuentra las gafas Möxer Kids en tu óptica</h2>
+    <p class="cta-section__text">Nuestros profesionales de óptica te ayudarán a encontrar el modelo perfecto para cada edad y medida de cabeza.</p>
+    <a href="/donde-comprar/" class="btn btn--primary btn--large">Ver distribuidores</a>
+  </div>
+</section>

@@ -1,0 +1,104 @@
+---
+layout: base.njk
+title: "Gafas de Sol Deportivas | Polarizadas y Fotocromáticas"
+description: "Gafas deportivas Möxer con lentes polarizadas, fotocromáticas e intercambiables. Montura TR-90 antiimpacto, antifog y puente regulable. Desde 55€ en tu óptica."
+collection: "deportivas"
+permalink: /colecciones/deportivas/
+---
+
+<!-- Page Hero -->
+<section class="page-hero page-hero--dark" style="background-image: linear-gradient(rgba(0,0,0,0.68), rgba(0,0,0,0.68)), url('/assets/images/heroes/hero-deportivas.jpg');">
+  <div class="container">
+    <nav class="page-hero__breadcrumb" aria-label="Navegación breadcrumb">
+      <a href="/">Inicio</a>
+      <span aria-hidden="true">→</span>
+      <a href="/colecciones/">Colecciones</a>
+      <span aria-hidden="true">→</span>
+      <span aria-current="page">Deportivas</span>
+    </nav>
+    <span class="page-hero__label">Sport Collection</span>
+    <h1 class="page-hero__title">Gafas Deportivas</h1>
+    <p class="page-hero__subtitle">
+      Diseñadas para rendimiento extremo. TR-90 antiimpacto, lentes polarizadas y fotocromáticas,
+      lente intercambiable incluida. Para ciclismo, running y multideporte.
+    </p>
+  </div>
+</section>
+
+<!-- Product Grid -->
+<section class="section">
+  <div class="container">
+
+    <!-- Filters -->
+    <div class="filters-bar">
+      <span class="text-small text-muted" style="margin-right:0.5rem;">Filtrar:</span>
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="Polarizada">Polarizadas</button>
+      <button class="filter-btn" data-filter="Fotocromática">Fotocromáticas</button>
+      <button class="filter-btn" data-filter="Polarizada Espejada">Espejadas</button>
+    </div>
+
+    <div class="products-grid">
+      {% for product in products %}
+        {% if product.collection === "deportivas" %}
+          <a href="/productos/{{ product.id }}/" class="product-card reveal" data-lens="{{ product.lensType }}">
+            <div class="product-card__image-wrap">
+              <img
+                src="{{ product.imageFront }}"
+                alt="{{ product.name }} – Möxer Sport"
+                class="product-card__image"
+                loading="lazy"
+              >
+              {% if product.badge %}
+                <span class="product-card__badge">{{ product.badge }}</span>
+              {% endif %}
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__collection">{{ product.lensType }}</span>
+              <h2 class="product-card__name">{{ product.name }}</h2>
+              <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:0.75rem; line-height:1.5;">{{ product.description }}</p>
+              <div class="product-card__features">
+                {% for feat in product.features %}
+                  <span class="feature-tag">{{ feat }}</span>
+                {% endfor %}
+              </div>
+              <div class="product-card__footer">
+                <span class="product-card__cta">Ver ficha →</span>
+              </div>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+<!-- Technology highlight -->
+<section class="section" style="background:var(--color-bg-2);">
+  <div class="container">
+    <div class="glow-box reveal">
+      <div style="display:grid; grid-template-columns:1fr; gap:2rem; align-items:center;">
+        <div>
+          <span class="section__label">Tecnología Sport</span>
+          <h2 style="font-size:clamp(1.5rem,3vw,2.25rem); margin-bottom:1rem;">Todo lo que necesitas para rendir al máximo</h2>
+          <p>Lentes intercambiables de policarbonato con repuesto incluido, tratamiento antifog, perforaciones de ventilación, puentes regulables y varillas con terminal ajustable. Porque en la carretera, en el trail o en la montaña, tu visión no puede fallar.</p>
+          <div class="btn-group" style="margin-top:2rem;">
+            <a href="/la-marca/#tecnologia" class="btn btn--primary">Ver tecnología</a>
+            <a href="/donde-comprar/" class="btn btn--outline-green">Encontrar óptica</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <span class="cta-section__kicker">¿Eres profesional?</span>
+    <h2 class="cta-section__title" style="max-width:20ch; margin-inline:auto;">¿Quieres distribuir Möxer en tu óptica?</h2>
+    <p class="cta-section__text">Trabajamos con ópticas independientes en toda España. Condiciones competitivas, material PLV y soporte de producto.</p>
+    <a href="/contacto/#distribuidor" class="btn btn--primary btn--large">Contactar como distribuidor</a>
+  </div>
+</section>

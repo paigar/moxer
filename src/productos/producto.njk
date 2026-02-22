@@ -1,0 +1,159 @@
+---
+pagination:
+  data: products
+  size: 1
+  alias: product
+permalink: "/productos/{{ product.id }}/"
+layout: base.njk
+eleventyComputed:
+  title: "{{ product.name }} | Gafas Möxer"
+  description: "{{ product.description }}"
+---
+
+<!-- Breadcrumb -->
+<section class="page-hero" style="padding-bottom:2rem;">
+  <div class="container">
+    <nav class="page-hero__breadcrumb" aria-label="Navegación breadcrumb">
+      <a href="/">Inicio</a>
+      <span>→</span>
+      <a href="/colecciones/">Colecciones</a>
+      <span>→</span>
+      <a href="/colecciones/{{ product.collection }}/">{{ product.collectionLabel }}</a>
+      <span>→</span>
+      <span aria-current="page">{{ product.name }}</span>
+    </nav>
+  </div>
+</section>
+
+<!-- Product Detail -->
+<section class="section" style="padding-top:2rem;">
+  <div class="container">
+    <div class="product-detail">
+
+      <!-- Image + Gallery -->
+      <div class="product-detail__image-wrap reveal">
+        <img
+          id="product-main-img"
+          src="{{ product.image }}"
+          alt="{{ product.name }} – Möxer"
+          class="product-detail__image lightbox-trigger"
+          data-src="{{ product.image }}"
+          data-alt="{{ product.name }} – Möxer"
+          loading="eager"
+          title="Haz clic para ampliar"
+        >
+        {% if product.badge %}
+          <span class="product-detail__badge">{{ product.badge }}</span>
+        {% endif %}
+        <div style="position:absolute; bottom:0.75rem; right:0.75rem; background:rgba(0,0,0,0.5); color:#fff; font-size:0.65rem; font-family:var(--font-heading); font-weight:700; letter-spacing:0.08em; padding:0.25rem 0.6rem; border-radius:var(--radius-full); pointer-events:none;">
+          &#x26F6; Ampliar
+        </div>
+
+        {% if product.images and product.images.length > 1 %}
+          <div class="product-gallery__thumbs">
+            {% for img in product.images %}
+              <img
+                src="{{ img }}"
+                alt="{{ product.name }} vista {{ loop.index }}"
+                class="product-gallery__thumb{% if loop.first %} is-active{% endif %}"
+                loading="lazy"
+              >
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- Info -->
+      <div class="product-detail__info reveal reveal--delay-1">
+        <div>
+          <span class="product-detail__collection">{{ product.collectionLabel }}</span>
+          <h1 class="product-detail__name">{{ product.name }}</h1>
+        </div>
+
+        <p class="product-detail__description">{{ product.description }}</p>
+
+        <!-- Features -->
+        <div>
+          <p class="product-detail__features-title">Características técnicas</p>
+          <div class="product-detail__features">
+            {% for feat in product.features %}
+              <span class="product-detail__feature-tag">{{ feat }}</span>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- Colors -->
+        <div>
+          <p class="product-detail__colors-title">Colores disponibles</p>
+          <div class="product-detail__colors">
+            {% for color in product.colors %}
+              <span class="product-detail__color">{{ color }}</span>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="product-detail__cta-box">
+          <p class="product-detail__cta-text">
+            Las gafas Möxer se distribuyen exclusivamente en ópticas profesionales. Tu óptico podrá asesorarte sobre la talla y el modelo ideal para tu morfología facial y actividad.
+          </p>
+          <div class="btn-group">
+            <a href="/donde-comprar/" class="btn btn--primary">Encontrar óptica cercana</a>
+            <a href="/colecciones/{{ product.collection }}/" class="btn btn--outline-green">Ver colección completa</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Related products -->
+<section class="section" style="background:var(--color-bg-2); padding-top:3rem;">
+  <div class="container">
+    <header class="section__header">
+      <span class="section__label">{{ product.collectionLabel }}</span>
+      <h2 class="section__title">Otros modelos de la colección</h2>
+    </header>
+    <div class="products-grid">
+      {% for p in products %}
+        {% if p.collection === product.collection and p.id !== product.id %}
+          <a href="/productos/{{ p.id }}/" class="product-card reveal">
+            <div class="product-card__image-wrap">
+              <img
+                src="{{ p.imageFront }}"
+                alt="{{ p.name }} – Möxer"
+                class="product-card__image"
+                loading="lazy"
+              >
+              {% if p.badge %}
+                <span class="product-card__badge">{{ p.badge }}</span>
+              {% endif %}
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__collection">{{ p.lensType }}</span>
+              <h3 class="product-card__name">{{ p.name }}</h3>
+              <div class="product-card__features">
+                {% for feat in p.features | slice(0, 3) %}
+                  <span class="feature-tag">{{ feat }}</span>
+                {% endfor %}
+              </div>
+              <div class="product-card__footer">
+                <span class="product-card__cta">Ver ficha →</span>
+              </div>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <span class="cta-section__kicker">Distribución exclusiva</span>
+    <h2 class="cta-section__title" style="max-width:18ch; margin-inline:auto;">Las gafas Möxer están en tu óptica de confianza</h2>
+    <p class="cta-section__text">Vendemos exclusivamente a través de ópticos profesionales de toda España.</p>
+    <a href="/donde-comprar/" class="btn btn--primary btn--large">Encuentra tu óptica</a>
+  </div>
+</section>

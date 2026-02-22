@@ -1,0 +1,94 @@
+---
+layout: base.njk
+title: "Gafas de Sol Cadete | Especial Rostro Fino y Adolescentes"
+description: "Gafas Möxer cadete: diseño especial para rostros finos y adolescentes. Lentes polarizadas espejo, montura ligera TR-90, protección UV400. En tu óptica."
+collection: "cadete"
+permalink: /colecciones/cadete/
+---
+
+<section class="page-hero page-hero--dark" style="background-image: linear-gradient(rgba(0,0,0,0.68), rgba(0,0,0,0.68)), url('/assets/images/heroes/hero-cadete.jpg');">
+  <div class="container">
+    <nav class="page-hero__breadcrumb" aria-label="Navegación breadcrumb">
+      <a href="/">Inicio</a>
+      <span>→</span>
+      <a href="/colecciones/">Colecciones</a>
+      <span>→</span>
+      <span aria-current="page">Cadete</span>
+    </nav>
+    <span class="page-hero__label">Cadet Collection</span>
+    <h1 class="page-hero__title">Cadete / Rostro Fino</h1>
+    <p class="page-hero__subtitle">
+      No todos los rostros son iguales. Diseño específico para adolescentes y personas con facciones pequeñas. Ajuste proporcionado sin renunciar al estilo ni a la protección.
+    </p>
+  </div>
+</section>
+
+<!-- Feature highlight -->
+<section style="padding:3rem 0; background:var(--color-bg-2);">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:1.5rem; text-align:center;">
+      <div style="padding:1.5rem;">
+        <div style="color:var(--color-primary); font-size:2rem; font-family:var(--font-heading); font-weight:900; margin-bottom:0.5rem;">TR-90</div>
+        <p style="font-size:0.875rem; color:var(--color-text-muted); margin:0;">Montura ultraligera y resistente</p>
+      </div>
+      <div style="padding:1.5rem;">
+        <div style="color:var(--color-primary); font-size:2rem; font-family:var(--font-heading); font-weight:900; margin-bottom:0.5rem;">Cat. 3</div>
+        <p style="font-size:0.875rem; color:var(--color-text-muted); margin:0;">Protección para alta luminosidad</p>
+      </div>
+      <div style="padding:1.5rem;">
+        <div style="color:var(--color-primary); font-size:2rem; font-family:var(--font-heading); font-weight:900; margin-bottom:0.5rem;">UV400</div>
+        <p style="font-size:0.875rem; color:var(--color-text-muted); margin:0;">Bloqueo total de radiación UV</p>
+      </div>
+      <div style="padding:1.5rem;">
+        <div style="color:var(--color-primary); font-size:2rem; font-family:var(--font-heading); font-weight:900; margin-bottom:0.5rem;">Mirror</div>
+        <p style="font-size:0.875rem; color:var(--color-text-muted); margin:0;">Lentes espejo polarizadas</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="products-grid">
+      {% for product in products %}
+        {% if product.collection === "cadete" %}
+          <a href="/productos/{{ product.id }}/" class="product-card reveal" data-lens="{{ product.lensType }}">
+            <div class="product-card__image-wrap">
+              <img
+                src="{{ product.imageFront }}"
+                alt="{{ product.name }} – Möxer Cadete"
+                class="product-card__image"
+                loading="lazy"
+              >
+              {% if product.badge %}
+                <span class="product-card__badge">{{ product.badge }}</span>
+              {% endif %}
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__collection">{{ product.lensType }}</span>
+              <h2 class="product-card__name">{{ product.name }}</h2>
+              <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:0.75rem; line-height:1.5;">{{ product.description }}</p>
+              <div class="product-card__features">
+                {% for feat in product.features %}
+                  <span class="feature-tag">{{ feat }}</span>
+                {% endfor %}
+              </div>
+              <div class="product-card__footer">
+                <span class="product-card__cta">Ver ficha →</span>
+              </div>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <span class="cta-section__kicker">Ajuste perfecto</span>
+    <h2 class="cta-section__title" style="max-width:20ch; margin-inline:auto;">Tu óptico encontrará el modelo ideal para tu rostro</h2>
+    <p class="cta-section__text">En una óptica profesional podrán medirte y ayudarte a elegir la gafa que mejor se adapta a tu fisonomía.</p>
+    <a href="/donde-comprar/" class="btn btn--primary btn--large">Encontrar óptica</a>
+  </div>
+</section>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} | {{ site.name }}{% else %}{{ site.name }} | {{ site.tagline }}{% endif %}</title>
+  <meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{% if title %}{{ title }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}">
+  <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="{{ site.url }}/assets/images/logo.jpg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="/assets/images/logo.jpg">
+</head>
+<body class="{% if bodyClass %}{{ bodyClass }}{% endif %}">
+
+  {% include "header.njk" %}
+
+  <main id="main-content">
+    {{ content | safe }}
+  </main>
+
+  {% include "footer.njk" %}
+
+  <script src="/assets/js/main.js"></script>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+    <button class="lightbox__close" id="lightbox-close" aria-label="Cerrar">✕</button>
+    <img class="lightbox__img" id="lightbox-img" src="" alt="">
+  </div>
+  <script>
+    (function () {
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lightbox-img');
+      var lbClose = document.getElementById('lightbox-close');
+
+      function openLightbox(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lb.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lb.classList.remove('is-open');
+        document.body.style.overflow = '';
+        setTimeout(function () { lbImg.src = ''; }, 300);
+      }
+
+      document.querySelectorAll('.lightbox-trigger').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          openLightbox(el.dataset.src || el.src, el.dataset.alt || el.alt);
+        });
+      });
+
+      // Gallery thumbnails: swap main image on thumb click
+      document.querySelectorAll('.product-gallery__thumb').forEach(function (thumb) {
+        thumb.addEventListener('click', function () {
+          var mainImg = document.getElementById('product-main-img');
+          if (!mainImg) return;
+          mainImg.src = thumb.src;
+          mainImg.dataset.src = thumb.src;
+          mainImg.alt = thumb.alt;
+          mainImg.dataset.alt = thumb.alt;
+          document.querySelectorAll('.product-gallery__thumb').forEach(function (t) {
+            t.classList.remove('is-active');
+          });
+          thumb.classList.add('is-active');
+        });
+      });
+
+      lbClose.addEventListener('click', closeLightbox);
+      lb.addEventListener('click', function (e) {
+        if (e.target === lb) closeLightbox();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeLightbox();
+      });
+    })();
+  </script>
+</body>
+</html>

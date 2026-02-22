@@ -1,0 +1,64 @@
+<header class="site-header" id="site-header">
+  <div class="container header__inner">
+
+    <!-- Logo -->
+    <a href="/" class="header__logo" aria-label="Möxer - Inicio">
+      <img src="/assets/images/logo.jpg" alt="Möxer" class="header__logo-img">
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="header__nav" aria-label="Navegación principal">
+      <ul class="nav__list">
+        {% for item in site.nav %}
+          <li class="nav__item {% if item.children %}nav__item--dropdown{% endif %}">
+            <a href="{{ item.url }}" class="nav__link {% if page.url == item.url %}nav__link--active{% endif %}">
+              {{ item.label }}
+              {% if item.children %}<span class="nav__arrow" aria-hidden="true">↓</span>{% endif %}
+            </a>
+            {% if item.children %}
+              <ul class="nav__dropdown">
+                {% for child in item.children %}
+                  <li>
+                    <a href="{{ child.url }}" class="nav__dropdown-link">{{ child.label }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <!-- Header CTA -->
+    <div class="header__actions">
+      <a href="/donde-comprar/" class="btn btn--small btn--primary">Encuentra tu óptica</a>
+      <button class="header__menu-btn" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav" id="mobile-menu" aria-label="Navegación móvil" aria-hidden="true">
+    <ul class="mobile-nav__list">
+      {% for item in site.nav %}
+        <li class="mobile-nav__item">
+          <a href="{{ item.url }}" class="mobile-nav__link">{{ item.label }}</a>
+          {% if item.children %}
+            <ul class="mobile-nav__sub">
+              {% for child in item.children %}
+                <li><a href="{{ child.url }}" class="mobile-nav__sub-link">{{ child.label }}</a></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+      <li class="mobile-nav__item mobile-nav__item--cta">
+        <a href="/donde-comprar/" class="btn btn--primary btn--full">Encuentra tu óptica</a>
+      </li>
+    </ul>
+  </nav>
+</header>

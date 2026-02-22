@@ -1,0 +1,306 @@
+---
+layout: base.njk
+title: "Dónde Comprar Gafas Möxer | Encuentra tu Óptica en España"
+description: "Localiza la óptica más cercana que vende gafas de sol Möxer. Red de distribuidores en toda España: País Vasco, Cataluña, Aragón, Castilla y más."
+permalink: /donde-comprar/
+---
+
+<!-- Page Hero -->
+<section class="page-hero page-hero--dark" style="background-image: linear-gradient(rgba(0,0,0,0.68), rgba(0,0,0,0.68)), url('/assets/images/heroes/hero-donde-comprar.jpg');">
+  <div class="container">
+    <nav class="page-hero__breadcrumb" aria-label="Navegación breadcrumb">
+      <a href="/">Inicio</a>
+      <span>→</span>
+      <span aria-current="page">Dónde Comprar</span>
+    </nav>
+    <span class="page-hero__label">Red de distribuidores</span>
+    <h1 class="page-hero__title">Encuentra tu óptica</h1>
+    <p class="page-hero__subtitle">
+      Las gafas Möxer se venden exclusivamente en ópticas profesionales. Creemos que elegir unas gafas de sol es una decisión de salud visual que merece el consejo de un óptico-optometrista cualificado.
+    </p>
+  </div>
+</section>
+
+<!-- Why optics strip -->
+<section class="why-optics-strip">
+  <div class="container">
+    <div class="why-optics-strip__grid">
+      <div class="why-optics-strip__item">
+        <div class="why-optics-strip__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div>
+          <h3 class="why-optics-strip__title">Asesoramiento experto</h3>
+          <p class="why-optics-strip__text">Un óptico-optometrista te ayuda a elegir el modelo ideal para tu morfología facial y actividad.</p>
+        </div>
+      </div>
+      <div class="why-optics-strip__item">
+        <div class="why-optics-strip__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <div>
+          <h3 class="why-optics-strip__title">Prueba antes de comprar</h3>
+          <p class="why-optics-strip__text">Pruébate el modelo, verifica el ajuste y comprueba la calidad de la lente antes de decidir.</p>
+        </div>
+      </div>
+      <div class="why-optics-strip__item">
+        <div class="why-optics-strip__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div>
+          <h3 class="why-optics-strip__title">Producto auténtico garantizado</h3>
+          <p class="why-optics-strip__text">Gafas Möxer originales con garantía y certificación UV400 verificada por el distribuidor.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Distributors by region (accordion) -->
+<section class="section distributors-section">
+  <div class="container">
+    <header class="section__header">
+      <span class="section__label">Puntos de venta</span>
+      <h2 class="section__title">Distribuidores en España</h2>
+      <p class="section__subtitle">Red activa de más de 15 ópticas y tiendas especializadas en toda la geografía española.</p>
+    </header>
+
+    <div class="region-accordion">
+
+      <!-- País Vasco -->
+      <div class="region-accordion__item is-open">
+        <button class="region-accordion__header" type="button" aria-expanded="true">
+          <span class="region-accordion__name">País Vasco</span>
+          <span class="region-accordion__count">2 puntos de venta</span>
+          <svg class="region-accordion__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="region-accordion__body">
+          <div class="distributors-grid">
+            {% for dist in distributors %}
+              {% if dist.region === "País Vasco" %}
+                <div class="distributor-card reveal">
+                  <div class="distributor-card__name">{{ dist.name }}</div>
+                  {% if dist.city and dist.city !== "España" %}
+                    <div class="distributor-card__location">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      {{ dist.city }}{% if dist.province and dist.province !== dist.city %}, {{ dist.province }}{% endif %}
+                    </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Cataluña -->
+      <div class="region-accordion__item">
+        <button class="region-accordion__header" type="button" aria-expanded="false">
+          <span class="region-accordion__name">Cataluña</span>
+          <span class="region-accordion__count">4 puntos de venta</span>
+          <svg class="region-accordion__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="region-accordion__body">
+          <div class="distributors-grid">
+            {% for dist in distributors %}
+              {% if dist.region === "Cataluña" %}
+                <div class="distributor-card reveal">
+                  <div class="distributor-card__name">{{ dist.name }}</div>
+                  {% if dist.city and dist.city !== "España" %}
+                    <div class="distributor-card__location">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      {{ dist.city }}{% if dist.province and dist.province !== dist.city %}, {{ dist.province }}{% endif %}
+                    </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Aragón -->
+      <div class="region-accordion__item">
+        <button class="region-accordion__header" type="button" aria-expanded="false">
+          <span class="region-accordion__name">Aragón</span>
+          <span class="region-accordion__count">1 punto de venta</span>
+          <svg class="region-accordion__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="region-accordion__body">
+          <div class="distributors-grid">
+            {% for dist in distributors %}
+              {% if dist.region === "Aragón" %}
+                <div class="distributor-card reveal">
+                  <div class="distributor-card__name">{{ dist.name }}</div>
+                  {% if dist.city and dist.city !== "España" %}
+                    <div class="distributor-card__location">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      {{ dist.city }}{% if dist.province and dist.province !== dist.city %}, {{ dist.province }}{% endif %}
+                    </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Castilla y León -->
+      <div class="region-accordion__item">
+        <button class="region-accordion__header" type="button" aria-expanded="false">
+          <span class="region-accordion__name">Castilla y León</span>
+          <span class="region-accordion__count">2 puntos de venta</span>
+          <svg class="region-accordion__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="region-accordion__body">
+          <div class="distributors-grid">
+            {% for dist in distributors %}
+              {% if dist.region === "Castilla y León" %}
+                <div class="distributor-card reveal">
+                  <div class="distributor-card__name">{{ dist.name }}</div>
+                  {% if dist.city and dist.city !== "España" %}
+                    <div class="distributor-card__location">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      {{ dist.city }}{% if dist.province and dist.province !== dist.city %}, {{ dist.province }}{% endif %}
+                    </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Comunidad Valenciana -->
+      <div class="region-accordion__item">
+        <button class="region-accordion__header" type="button" aria-expanded="false">
+          <span class="region-accordion__name">Comunidad Valenciana</span>
+          <span class="region-accordion__count">1 punto de venta</span>
+          <svg class="region-accordion__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="region-accordion__body">
+          <div class="distributors-grid">
+            {% for dist in distributors %}
+              {% if dist.region === "Comunidad Valenciana" %}
+                <div class="distributor-card reveal">
+                  <div class="distributor-card__name">{{ dist.name }}</div>
+                  {% if dist.city and dist.city !== "España" %}
+                    <div class="distributor-card__location">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      {{ dist.city }}{% if dist.province and dist.province !== dist.city %}, {{ dist.province }}{% endif %}
+                    </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- No encuentras tu provincia -->
+    <div class="glow-box reveal" style="text-align:center;">
+      <h3 style="font-size:1.25rem; margin-bottom:0.75rem;">¿No encuentras tu provincia?</h3>
+      <p style="color:var(--color-text-muted); margin-bottom:1.5rem; max-width:52ch; margin-inline:auto;">Escríbenos y te indicamos qué óptica cercana trabaja con Möxer o tramitamos el envío de catálogo a tu óptica de referencia.</p>
+      <a href="mailto:brand@moxer.es" class="btn btn--primary">Consultar por email</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Visual break: join the network -->
+<section style="background: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)), url('/assets/images/distribuidores-bg.jpg') center/cover no-repeat; padding: 5rem 0; text-align: center;">
+  <div class="container">
+    <span class="cta-section__kicker">Para ópticos profesionales</span>
+    <h2 style="font-family:var(--font-heading); font-size:clamp(1.75rem,4vw,3rem); font-weight:900; color:#fff; max-width:20ch; margin-inline:auto; line-height:1.2; margin-bottom:1rem;">Forma parte de la red exclusiva de distribuidores</h2>
+    <p style="color:rgba(255,255,255,0.6); max-width:52ch; margin-inline:auto; font-size:1.05rem; line-height:1.7; margin-bottom:2.5rem;">Condiciones competitivas, material PLV y soporte de producto completo para ópticos independientes en toda España.</p>
+    <div style="display:flex; gap:3rem; justify-content:center; flex-wrap:wrap; margin-bottom:2.5rem;">
+      <div>
+        <div style="font-family:var(--font-heading); font-size:2.75rem; font-weight:900; color:var(--color-primary); line-height:1;">15+</div>
+        <div style="font-size:0.75rem; color:rgba(255,255,255,0.55); text-transform:uppercase; letter-spacing:0.12em; margin-top:0.3rem;">Ópticas distribuidoras</div>
+      </div>
+      <div>
+        <div style="font-family:var(--font-heading); font-size:2.75rem; font-weight:900; color:var(--color-primary); line-height:1;">5</div>
+        <div style="font-size:0.75rem; color:rgba(255,255,255,0.55); text-transform:uppercase; letter-spacing:0.12em; margin-top:0.3rem;">Comunidades autónomas</div>
+      </div>
+      <div>
+        <div style="font-family:var(--font-heading); font-size:2.75rem; font-weight:900; color:var(--color-primary); line-height:1;">100%</div>
+        <div style="font-size:0.75rem; color:rgba(255,255,255,0.55); text-transform:uppercase; letter-spacing:0.12em; margin-top:0.3rem;">UV400 certificado</div>
+      </div>
+    </div>
+    <a href="#distribuidor" class="btn btn--primary btn--large">Solicitar información como distribuidor</a>
+  </div>
+</section>
+
+<!-- Distributor CTA -->
+<section class="section" id="distribuidor">
+  <div class="container container--narrow">
+    <div class="reveal" style="text-align:center; margin-bottom:3rem;">
+      <span class="section__label">Para profesionales</span>
+      <h2 class="section__title">¿Quieres distribuir Möxer en tu óptica?</h2>
+      <p style="max-width:56ch; margin-inline:auto; color:var(--color-text-muted);">
+        Trabajamos con ópticas independientes en toda España ofreciendo condiciones competitivas, material PLV y soporte de producto completo.
+      </p>
+    </div>
+
+    <form class="form reveal" name="distribuidor" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="distribuidor">
+      <div class="form__row">
+        <div class="form__group">
+          <label class="form__label" for="dist-nombre">Nombre y apellidos *</label>
+          <input class="form__input" type="text" id="dist-nombre" name="nombre" required>
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="dist-optica">Nombre de la óptica *</label>
+          <input class="form__input" type="text" id="dist-optica" name="optica" required>
+        </div>
+      </div>
+      <div class="form__row">
+        <div class="form__group">
+          <label class="form__label" for="dist-email">Email *</label>
+          <input class="form__input" type="email" id="dist-email" name="email" required>
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="dist-telefono">Teléfono</label>
+          <input class="form__input" type="tel" id="dist-telefono" name="telefono">
+        </div>
+      </div>
+      <div class="form__group">
+        <label class="form__label" for="dist-provincia">Provincia *</label>
+        <input class="form__input" type="text" id="dist-provincia" name="provincia" required>
+      </div>
+      <div class="form__group">
+        <label class="form__label" for="dist-mensaje">Mensaje (opcional)</label>
+        <textarea class="form__textarea" id="dist-mensaje" name="mensaje" rows="4"></textarea>
+      </div>
+      <div class="form__checkbox-group">
+        <input type="checkbox" class="form__checkbox" id="dist-privacy" required>
+        <label class="form__checkbox-label" for="dist-privacy">
+          He leído y acepto la <a href="/privacidad/">Política de Privacidad</a>
+        </label>
+      </div>
+      <button type="submit" class="btn btn--primary btn--large form__submit">Enviar solicitud</button>
+    </form>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var headers = document.querySelectorAll('.region-accordion__header');
+    headers.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var item = btn.closest('.region-accordion__item');
+        var isOpen = item.classList.contains('is-open');
+        headers.forEach(function (h) {
+          h.closest('.region-accordion__item').classList.remove('is-open');
+          h.setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('is-open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  })();
+</script>

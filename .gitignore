@@ -1,0 +1,10 @@
+node_modules/
+_site/
+fb/
+admin/
+.claude/
+.env
+image001.jpg
+web-diseño.pdf
+IMAGENES.md
+moxer-planificacion-web.md

@@ -1,0 +1,66 @@
+---
+layout: base.njk
+title: "Blog | Guías y Consejos de Óptica"
+description: "Artículos sobre protección visual, tendencias en eyewear deportivo y guías de compra. Aprende a elegir las mejores gafas de sol para cada actividad."
+permalink: /blog/
+---
+
+<section class="page-hero page-hero--dark" style="background-image: linear-gradient(rgba(0,0,0,0.68), rgba(0,0,0,0.68)), url('/assets/images/heroes/hero-blog.jpg');">
+  <div class="container">
+    <nav class="page-hero__breadcrumb" aria-label="Navegación breadcrumb">
+      <a href="/">Inicio</a>
+      <span>→</span>
+      <span aria-current="page">Blog</span>
+    </nav>
+    <span class="page-hero__label">Conocimiento óptico</span>
+    <h1 class="page-hero__title">Guías y consejos</h1>
+    <p class="page-hero__subtitle">
+      Todo lo que necesitas saber sobre protección visual, lentes polarizadas, materiales y cómo elegir las gafas perfectas para cada actividad.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Featured article -->
+    {% set featured = blog | selectattr("featured") | first %}
+    {% if featured %}
+    <a href="/blog/{{ featured.slug }}/" class="reveal" style="display:grid; grid-template-columns:1fr; gap:2rem; align-items:center; margin-bottom:4rem; background:var(--color-card); border-radius:var(--radius-xl); overflow:hidden; border:1px solid var(--color-border); transition:border-color var(--transition), box-shadow var(--transition);" onmouseover="this.style.borderColor='var(--color-border-green)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--color-border)';this.style.boxShadow='none'">
+      <div style="aspect-ratio:16/9; overflow:hidden;">
+        <img
+          src="{{ featured.image }}"
+          alt="{{ featured.title }}"
+          loading="lazy"
+          style="width:100%; height:100%; object-fit:cover;"
+        >
+      </div>
+      <div style="padding:2rem 2.5rem 2.5rem;">
+        <span style="color:var(--color-primary); font-family:var(--font-heading); font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.15em; margin-bottom:0.75rem; display:block;">{{ featured.category }} · Destacado</span>
+        <h2 style="font-size:clamp(1.5rem,3vw,2.25rem); margin-bottom:1rem;">{{ featured.title }}</h2>
+        <p style="color:var(--color-text-muted); font-size:1rem; line-height:1.7; margin-bottom:1.5rem;">{{ featured.excerpt }}</p>
+        <span style="font-family:var(--font-heading); font-size:0.8rem; color:var(--color-text-faint);">{{ featured.readTime }} min de lectura</span>
+      </div>
+    </a>
+    {% endif %}
+
+    <!-- Articles grid -->
+    <div class="blog-grid">
+      {% for article in blog %}
+        {% if not article.featured %}
+          <a href="/blog/{{ article.slug }}/" class="article-card reveal{% if loop.index % 3 === 2 %} reveal--delay-1{% elif loop.index % 3 === 0 %} reveal--delay-2{% endif %}">
+            <div class="article-card__image-wrap">
+              <img src="{{ article.image }}" alt="{{ article.title }}" class="article-card__image" loading="lazy">
+            </div>
+            <div class="article-card__body">
+              <span class="article-card__tag">{{ article.category }}</span>
+              <h3 class="article-card__title">{{ article.title }}</h3>
+              <p class="article-card__excerpt">{{ article.excerpt }}</p>
+              <span class="article-card__meta">{{ article.readTime }} min de lectura</span>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

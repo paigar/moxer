@@ -1,0 +1,17 @@
+[
+  { "name": "Optika Mikel", "city": "Bilbao", "province": "Bizkaia", "region": "País Vasco", "address": "Bizkaia" },
+  { "name": "Eup.eus", "city": "Bizkaia", "province": "Bizkaia", "region": "País Vasco", "address": "Bizkaia" },
+  { "name": "Òptica Agustí", "city": "Girona", "province": "Girona", "region": "Cataluña", "address": "Girona" },
+  { "name": "Óptica Mataró", "city": "Mataró", "province": "Barcelona", "region": "Cataluña", "address": "Barcelona" },
+  { "name": "Óptica Mirasol", "city": "Barcelona", "province": "Barcelona", "region": "Cataluña", "address": "Barcelona" },
+  { "name": "Bike World BCN", "city": "Barcelona", "province": "Barcelona", "region": "Cataluña", "address": "Barcelona" },
+  { "name": "Óptica Bajo Aragón", "city": "Teruel", "province": "Teruel", "region": "Aragón", "address": "Teruel" },
+  { "name": "Central Óptica Online", "city": "Ponferrada", "province": "León", "region": "Castilla y León", "address": "León" },
+  { "name": "Solo Runners Burgos", "city": "Burgos", "province": "Burgos", "region": "Castilla y León", "address": "Burgos" },
+  { "name": "Ciclo-Mania", "city": "Alicante", "province": "Alicante", "region": "Comunidad Valenciana", "address": "Alicante" },
+  { "name": "Óptica Timoner", "city": "España", "province": "-", "region": "España", "address": "España" },
+  { "name": "Centro Óptico Valdavia", "city": "España", "province": "-", "region": "España", "address": "España" },
+  { "name": "Óptica San Antón", "city": "España", "province": "-", "region": "España", "address": "España" },
+  { "name": "Óptica Perlado", "city": "España", "province": "-", "region": "España", "address": "España" },
+  { "name": "Óptica Josu", "city": "España", "province": "-", "region": "España", "address": "España" }
+]

@@ -1,0 +1,26 @@
+{
+  "name": "Möxer",
+  "tagline": "Gafas de Sol Deportivas Polarizadas",
+  "description": "Descubre Möxer: gafas de sol deportivas con lentes polarizadas, montura TR-90 antiimpacto y protección UV400. Colecciones para adulto, niño, cadete y deporte.",
+  "url": "https://www.moxer.es",
+  "email": "brand@moxer.es",
+  "phone": "944 97 86 44",
+  "address": "C/ San Lorenzo, Local 6-8, 48950 Astrabudua, Vizcaya",
+  "social": {
+    "facebook": "https://www.facebook.com/moxergafas",
+    "instagram": "#",
+    "youtube": "#"
+  },
+  "nav": [
+    { "label": "Colecciones", "url": "/colecciones/", "children": [
+      { "label": "Deportivas / Sport", "url": "/colecciones/deportivas/" },
+      { "label": "Adulto / Lifestyle", "url": "/colecciones/adulto/" },
+      { "label": "Infantil", "url": "/colecciones/infantil/" },
+      { "label": "Cadete / Rostro fino", "url": "/colecciones/cadete/" }
+    ]},
+    { "label": "La Marca", "url": "/la-marca/" },
+    { "label": "Blog", "url": "/blog/" },
+    { "label": "Dónde Comprar", "url": "/donde-comprar/" },
+    { "label": "Contacto", "url": "/contacto/" }
+  ]
+}

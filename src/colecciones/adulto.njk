@@ -1,0 +1,77 @@
+---
+layout: base.njk
+title: "Gafas de Sol para Adulto | Polarizadas, Estilo y UV400"
+description: "Gafas Möxer adulto: monturas ligeras en acetato y TR-90, lentes polarizadas categoría 3, protección UV400. Diseño contemporáneo para el día a día. En tu óptica."
+collection: "adulto"
+permalink: /colecciones/adulto/
+---
+
+<section class="page-hero page-hero--dark" style="background-image: linear-gradient(rgba(0,0,0,0.68), rgba(0,0,0,0.68)), url('/assets/images/heroes/hero-adulto.jpg');">
+  <div class="container">
+    <nav class="page-hero__breadcrumb" aria-label="Navegación breadcrumb">
+      <a href="/">Inicio</a>
+      <span>→</span>
+      <a href="/colecciones/">Colecciones</a>
+      <span>→</span>
+      <span aria-current="page">Adulto</span>
+    </nav>
+    <span class="page-hero__label">Lifestyle Collection</span>
+    <h1 class="page-hero__title">Gafas Adulto / Lifestyle</h1>
+    <p class="page-hero__subtitle">
+      Monturas en acetato y materiales inyectados con lentes polarizadas de categoría 3.
+      Del trabajo al fin de semana sin perder estilo ni protección.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="filters-bar">
+      <span class="text-small text-muted" style="margin-right:0.5rem;">Filtrar:</span>
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="Polarizada">Polarizadas</button>
+    </div>
+
+    <div class="products-grid">
+      {% for product in products %}
+        {% if product.collection === "adulto" %}
+          <a href="/productos/{{ product.id }}/" class="product-card reveal" data-lens="{{ product.lensType }}">
+            <div class="product-card__image-wrap">
+              <img
+                src="{{ product.imageFront }}"
+                alt="{{ product.name }} – Möxer Lifestyle"
+                class="product-card__image"
+                loading="lazy"
+              >
+              {% if product.badge %}
+                <span class="product-card__badge">{{ product.badge }}</span>
+              {% endif %}
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__collection">{{ product.lensType }}</span>
+              <h2 class="product-card__name">{{ product.name }}</h2>
+              <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:0.75rem; line-height:1.5;">{{ product.description }}</p>
+              <div class="product-card__features">
+                {% for feat in product.features %}
+                  <span class="feature-tag">{{ feat }}</span>
+                {% endfor %}
+              </div>
+              <div class="product-card__footer">
+                <span class="product-card__cta">Ver ficha →</span>
+              </div>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <span class="cta-section__kicker">Distribución exclusiva</span>
+    <h2 class="cta-section__title" style="max-width:18ch; margin-inline:auto;">Las gafas Möxer están en tu óptica de confianza</h2>
+    <p class="cta-section__text">Vendemos exclusivamente a través de ópticos profesionales cualificados.</p>
+    <a href="/donde-comprar/" class="btn btn--primary btn--large">Encuentra tu óptica</a>
+  </div>
+</section>
