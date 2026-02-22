@@ -2,7 +2,17 @@ const site = require("./site.json");
 const ADMIN_URL = site.adminUrl;
 
 module.exports = async function () {
-  const res = await fetch(`${ADMIN_URL}/products.json`);
+  let res;
+  try {
+    res = await fetch(`${ADMIN_URL}/products.json`);
+  } catch (err) {
+    throw new Error(`No se pudo conectar con ${ADMIN_URL}/products.json — ${err.message}`);
+  }
+
+  if (!res.ok) {
+    throw new Error(`Error ${res.status} al obtener ${ADMIN_URL}/products.json`);
+  }
+
   const data = await res.json();
 
   return data.map((product) => ({
